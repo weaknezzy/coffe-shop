@@ -16,9 +16,17 @@ document.querySelector("#search-button").onclick = (e) => {
   e.preventDefault();
 };
 
+//toogle class active untuk shopping cart
+const navbarShop = document.querySelector(".shopping-cart");
+// ketika shopping cart di click
+document.querySelector("#shopping-cart-button").onclick = () => {
+  navbarShop.classList.toggle("active");
+};
+
 // klik di luar elemen
 const hm = document.querySelector("#hamburger-menu");
 const sb = document.querySelector("#search-button");
+const sp = document.querySelector("#shopping-cart-button");
 
 document.addEventListener("click", function (e) {
   if (!hm.contains(e.target) && !navbarNav.contains(e.target)) {
@@ -27,5 +35,9 @@ document.addEventListener("click", function (e) {
 
   if (!sb.contains(e.target) && !searchForm.contains(e.target)) {
     searchForm.classList.remove("active");
+  }
+
+  if (!sp.contains(e.target) && !navbarShop.contains(e.target)) {
+    navbarShop.classList.remove("active");
   }
 });
